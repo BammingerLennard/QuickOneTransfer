@@ -21,3 +21,4 @@ jobs:
           name: QuickOneTransfer-Fabric-1.16.5
           path: build/libs/*.jar
           if-no-files-found: error
+

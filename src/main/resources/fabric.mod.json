@@ -1,0 +1,10 @@
+{
+ "schemaVersion":1,
+ "id":"quickonetransfer",
+ "version":"1.0.0",
+ "name":"Quick One Transfer",
+ "environment":"client",
+ "mixins":["quickonetransfer.mixins.json"],
+ "entrypoints":{"client":["de.example.quickonetransfer.QuickOneTransfer"]},
+ "depends":{"fabricloader":">=0.11.0","minecraft":"1.16.5","java":">=8","fabric":"*"}
+}

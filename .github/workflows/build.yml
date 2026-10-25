@@ -1,0 +1,35 @@
+
+name: Build Minecraft Mod
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Projekt herunterladen
+        uses: actions/checkout@v4
+
+      - name: Java 17 einrichten
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Gradle installieren
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '7.6'
+
+      - name: Mod bauen
+        run: gradle build --stacktrace
+
+      - name: Fertige Mod hochladen
+        uses: actions/upload-artifact@v4
+        with:
+          name: QuickOneTransfer-Mod
+          path: build/libs/*.jar
+          if-no-files-found: error

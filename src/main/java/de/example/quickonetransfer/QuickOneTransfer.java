@@ -26,7 +26,7 @@ public class QuickOneTransfer implements ClientModInitializer {
     if (!(handler instanceof CraftingScreenHandler) && !(handler instanceof AbstractFurnaceScreenHandler)) return true;
     // Slot under cursor is resolved using the screen's accessor mixin.
     Slot source = ((HandledScreenAccessor) handled).quickone$getFocusedSlot();
-    if (source == null || !source.hasStack() || source.inventory != client.player.getInventory()) return true;
+    if (source == null || !source.hasStack() || source.inventory != client.player.inventory) return true;
     if (!handler.getCursorStack().isEmpty()) return true;
     int target = -1;
     if (handler instanceof CraftingScreenHandler) {
